@@ -142,9 +142,6 @@
     lldb      # LLVM Deubgger
     valgrind  # Memory debugging tool
 
-    # Editors
-    vim     # Simple terminal-based text editor
-
     # CLI Tools
     bat            # The `cat` clone with syntax highlighting and git integration
     bc             # GNU Software calculator
@@ -160,9 +157,6 @@
     xclip          # Tool to access the X clipboard from a console
     wl-clipboard   # Command-line copy/paste utilities for Wayland
     yazi           # Terminal-based file manager
-
-    # Plugins
-    yaziPlugins.lazygit
 
     # Other
     nix-prefetch-scripts

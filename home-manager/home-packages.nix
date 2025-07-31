@@ -34,9 +34,6 @@
     yt-dlp         # Tool to download videos from Youtube and other sites (youtube-dl fork)
     wikiman        # Wikiman
 
-    # Plugins
-    # yaziPlugins.lazygit  # System-wide already
-
     # Desktop applications
     dropbox           # Cloud file storage
     telegram-desktop  # Modern, and--probably the most popular nowadays--messanger

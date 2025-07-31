@@ -48,7 +48,7 @@
       nixgens = "nixos-rebuild list-generations";
       homegens = "home-manager generations";
       clean-boot = "sudo /run/current-system/bin/switch-to-configuration boot";
-      full-update = "sudo nix-channel --update && sudo nixos-rebulid switch && home-manager switch && reboot";
+      nix-full-upgrade = "sudo nix-channel --update && sudo nixos-rebulid switch && home-manager switch && clean-boot && reboot";
       # nr = "sudo nixos-rebuild switch --flake ${env.flakePath}";      # Rebuild and switch
       # nb = "sudo nixos-rebuild build --flake ${env.flakePath}";       # Build without switch
       # nrd = "sudo nixos-rebuild dry-build --flake ${env.flakePath}";  # Preview changes
