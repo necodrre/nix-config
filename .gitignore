@@ -1,0 +1,11 @@
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Nixos bulid links
+result
+
+# Encrypted files
+passwords
