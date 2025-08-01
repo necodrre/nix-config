@@ -39,11 +39,11 @@
 
   environment.systemPackages = with pkgs; [
     # Essentials
-    mesa
-    pciutils
-    usbutils
-    lsscsi
-    lshw
+    mesa         # 3D Graphics library
+    pciutils     # PCIUtils...
+    usbutils     # Used for lsusb
+    lsscsi       # List SCSI devices (or hosts)
+    lshw         # List hardware configuration
     samba        # For winbindd/ntlm_auth packages
     gcc          # C Compiler (classic)
     go           # Go Compiler
