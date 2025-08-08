@@ -62,6 +62,13 @@ Adjust the `./nixos/modules/user.nix` by replacing everything inside the `<>` wi
 ...
 ```
 
+Finally, replace `<username>` in the following piece of code from `./nixos/modules/virtualisation.nix` with your username:
+```nix
+...
+  users.extraGroups.vboxusers.members = [ "<username>" ];
+...
+```
+
 Rebuild your system.
 ```bash
 sudo nix-channel --update && sudo nixos-rebuild switch
