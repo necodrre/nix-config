@@ -1,3 +1,5 @@
+{ lib, pkgs, ... }:
+
 {
   programs.helix = {
     enable = true;
@@ -106,6 +108,44 @@
         j.k = "normal_mode";
       };
     };
+
+    languages.language = [
+      {
+        name = "rust";
+        indent = {
+            tab-width = 4;
+            unit = "    ";
+        };
+        # auto-format = true;
+        # formatter.command = lib.getExe pkgs.rustfmt;
+      }
+      {
+        name = "nix";
+        indent = {
+            tab-width = 2;
+            unit = "  ";
+        };
+        # auto-format = true;
+        # formatter.command = lib.getExe pkgs.nixpkgs-fmt;
+      }
+      {
+        name = "go";
+        indent = {
+            tab-width = 4;
+            unit = "    ";
+        };
+        auto-format = false;
+        file-types = [ "go" ];
+        # auto-format = true;
+      }
+      {
+        name = "c";
+        indent = {
+            tab-width = 8;
+            unit = "        ";
+        };
+      }
+    ];
 
     themes = {
       rat = let

@@ -40,7 +40,7 @@
     obsidian          # Best thing that ever happened to me
     obs-studio        # Free software for video recording and live streaming
     # pavucontrol
-    megasync          # "Mega Cloud Drive" desktop app
+    # megasync          # "Mega Cloud Drive" desktop app
     prismlauncher     # Best minecraft launcher out there
     qutebrowser       # Keyboard-based browser
     showmethekey      # Show keys you typed on screen

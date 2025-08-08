@@ -23,11 +23,9 @@
       cat = "bat --theme=gruvbox-dark";
 
       # Misc
-      # c = "clear"     # Better to use "Ctrl + L" hotkey
-      # hs = "history"  # Better to use "Ctrl + R" hotkey
       j = "just";
       fetch = "clear && fastfetch --logo gentoo";
-      # fetch = "clear && fastfetch --logo windows";
+      fetchwin = "clear && fastfetch --logo windows";
 
       # Network
       ip = "ip --color=auto";
@@ -47,29 +45,22 @@
       # NixOS
       nixgens = "nixos-rebuild list-generations";
       homegens = "home-manager generations";
+      nix-clean = "sudo nix-collect-garbage -d";
       clean-boot = "sudo /run/current-system/bin/switch-to-configuration boot";
       nix-full-upgrade = "sudo nix-channel --update && sudo nixos-rebulid switch && home-manager switch && clean-boot && reboot";
       # nr = "sudo nixos-rebuild switch --flake ${env.flakePath}";      # Rebuild and switch
       # nb = "sudo nixos-rebuild build --flake ${env.flakePath}";       # Build without switch
       # nrd = "sudo nixos-rebuild dry-build --flake ${env.flakePath}";  # Preview changes
 
-      # System maintenance docs
-      # nixos-rebuild list-generations              # List system generations
       # nix-collect-garbage -d (--delete-old)       # Clean old user generations
-      # sudo nix-collect-garbage -d (--delete-old)  # Clean system-wide
-      # sudo /run/current-system/bin/switch-to-configuration boot  # Clean boot entries
       # sudo nix flake update                       # Update flake inputs
 
       # Misc
       sirus = "appimage-run ~/SirusLauncher.AppImage";
+      circle = "wine ~/Games/World\\ of\\ Warcraft/3.3.5\\ \\(ENG\\)/Wow.exe";
     };
 
     history.size = 10000;
-
-    # zsh-abbr = {
-    #   enable = true;
-    #   abbreviations = shellAliases;  # <-- Use aliases
-    # };
 
     initContent = ''
       ###################################################
@@ -122,4 +113,9 @@
       fi
     '';
   }; 
+
+    # zsh-abbr = {
+    #   enable = true;
+    #   abbreviations = shellAliases;  # <-- Use aliases
+    # };
 }
