@@ -1,4 +1,5 @@
 {
+  services.power-profiles-daemon.enable = false;  # Becuase I want to use TLP!
   services.tlp = {
     enable = true;
     settings = {
