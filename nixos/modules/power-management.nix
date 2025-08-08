@@ -1,4 +1,11 @@
+{ config, ... }:
+
 {
+  # # If you're using newer thinkpads, you have to have this enabled to make TLP work.
+  # boot = {
+  #   kernelModules = [ "acpi_call "];
+  #   extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+  # };
   services.power-profiles-daemon.enable = false;  # Becuase I want to use TLP!
   services.tlp = {
     enable = true;
