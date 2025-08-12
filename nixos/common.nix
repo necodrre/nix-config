@@ -35,6 +35,8 @@
   # Allow unfree software
   nixpkgs.config.allowUnfree = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   environment.systemPackages = with pkgs; [
     # Essentials
     mesa         # 3D Graphics library

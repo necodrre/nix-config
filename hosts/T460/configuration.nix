@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, stateVersion, hostname, ... }:
 
 {
   imports = [
@@ -33,7 +33,7 @@
 
   environment.systemPackages = [ pkgs.home-manager ];
 
-  networking.hostName = "nixos";
+  networking.hostName = hostname;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = stateVersion;
 }

@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, user, name, ... }:
 
 {
   programs.zsh.enable = true;
 
-  users.users.rat = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "lynette";
+    description = name;
     extraGroups = [ "audio" "networkmanager" "wheel" ];
   };
   users.defaultUserShell = pkgs.zsh;

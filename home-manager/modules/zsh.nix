@@ -1,4 +1,4 @@
-{ config, ...}: {
+{ config, user, ...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -13,7 +13,11 @@
       ];
     };
 
-    shellAliases = {
+    shellAliases =
+    let
+      flakePath = config.home.sessionVariables.NIXOS_CONFIG_PATH;
+    in
+    {
       # List directory contents
       ll = "eza --color=always -lah";
       ls="eza --color=always -a";
@@ -54,17 +58,30 @@
       cdr = "(){ cd $(git rev-parse --show-toplevel); }";  ## "cd" to the root of the current repository
 
       # NixOS
+
+      # List generations
       nixgens = "nixos-rebuild list-generations";
       homegens = "home-manager generations";
-      nix-clean = "sudo nix-collect-garbage -d";
+      # Clean the system (system-wide: nixos + home-manager)
+      nix-clean-sw = "sudo nh clean all --keep=3";
       clean-boot = "sudo /run/current-system/bin/switch-to-configuration boot";
-      nix-full-upgrade = "sudo nix-channel --update && sudo nixos-rebulid switch && home-manager switch && clean-boot && reboot";
-      # nr = "sudo nixos-rebuild switch --flake ${env.flakePath}";      # Rebuild and switch
-      # nb = "sudo nixos-rebuild build --flake ${env.flakePath}";       # Build without switch
-      # nrd = "sudo nixos-rebuild dry-build --flake ${env.flakePath}";  # Preview changes
+      # Update/Switch/Build
+      nix-update = "nh os switch --update ${flakePath}";
+      nix-switch = "nh os switch --ask ${flakePath} && clean-boot";
+      nix-build = "nh os build ${flakePath}";
+      home-switch = "nh home switch --ask ${flakePath} && source /home/${user}/.zshrc";
+      home-build = "nh home build ${flakePath}";
+      # Full system upgrade
+      nix-full-upgrade = "nix-update && nix-switch && home-switch && reboot";
+      # Preview changes without performing them
+      nix-preview = "nh os switch --dry ${flakePath}";
+      home-preview = "nh home switch --dry ${flakePath}";
+      # Change directory to configuration directory
+      cdconf = "cd $NIXOS_CONFIG_PATH";
 
-      # nix-collect-garbage -d (--delete-old)       # Clean old user generations
-      # sudo nix flake update                       # Update flake inputs
+      # home-switch = "home-manager switch --flake .#${user} && source /home/${user}/.zshrc";
+      # nix-switch = "sudo nixos-rebuild switch --flake .#${hostname} && clean-boot";
+      # nix-full-upgrade = "nix-update && nix-switch && home-switch && reboot";
 
       # Misc
       sirus = "appimage-run ~/SirusLauncher.AppImage";
