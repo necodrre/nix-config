@@ -7,11 +7,9 @@
     ./modules
   ];
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
+  # Disable if you're only using a Wayland session
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -21,7 +19,7 @@
   };
   services.displayManager.defaultSession = "xfce";
 
-  # Enable the KDE Plasma Desktop Environment.
+  # KDE
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 

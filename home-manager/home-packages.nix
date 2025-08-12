@@ -60,6 +60,9 @@
     nix-prefetch-scripts
     protonmail-bridge     # required for bridging proton mail to the other email clients
 
+    # Because I want that.
+    cmatrix
+
     # For WM (Wayland)
     # bemoji         # Emoji picker with support for bemenu/wofi/rofi/dmenu and Wayland/X11
     # brightnessctl  # Allows to read and control device brightness
