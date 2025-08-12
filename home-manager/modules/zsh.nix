@@ -26,6 +26,17 @@
       j = "just";
       fetch = "clear && fastfetch --logo gentoo";
       fetchwin = "clear && fastfetch --logo windows";
+      catext = "(){ find . -name \"*.$1\" -not -path './.git/*' -exec printf \"\\n\\n{}\\n\\n\\n\" \\; -exec bat -pp {} \\; }";
+      rgdirext = "(){ find . -name \"*.$1\" -not -path './.git/*' -exec bash -c 'for f in \"$1\"; do if rg -q \"$2\" \"$f\"; then printf \"\\n$f\\n\\n\"; rg \"$2\" \"$f\"; fi; done' none {} \"$2\" \\; }";
+      # find . -name '*.go' -not -path './.git/*'
+      #   -exec bash -c 'for f in "$1"; do
+      #                    if rg -q "main" "$f"; then
+      #                      printf "\n$f\n\n";
+      #                      rg "main" "$f";
+      #                    fi;
+      #                  done'
+      #   none {} \;
+      get-alias = "() { printf '%s\\n' $aliases[$1] }";
 
       # Network
       ip = "ip --color=auto";
