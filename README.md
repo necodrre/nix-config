@@ -1,5 +1,5 @@
 ## Prerequisites
-***
+
 After you've done basic instalation, mounted the filesystem and logged on, open the `/etc/nixos/configuration.nix` and add the following piece of code to it:
 > If you haven't already installed it, follow the [NixOS Installation Guide](https://nixos.org/manual/nixos/stable/#sec-installation) for detailed instructions.
 
@@ -18,21 +18,18 @@ After rebuild, copy this repository via
 git clone https://github.com/necodrre/nix-config.git /home/$USER/
 ```
 
-## Installation
-***
+## Installation: Using installation script
 
-### Using installation script
-***
 Only thing you have to do when installing with script is to run `install.sh` from the config directory (you can do it from wherever you want).
 ```bash
 ./install.sh
 ```
 Script will ask you for all the required information and install (build) the system for yourself.
 
-### Manual installation
-***
-#### NixOS Configuration
-***
+## Installation: Manual
+
+### NixOS Configuration
+
 Enter cloned directory.
 ```bash
 cd /home/$USER/nix-config
@@ -135,8 +132,8 @@ Rebuild your system and reboot.
 sudo nixos-rebuild switch --flake .#<hostname> && reboot
 ```
 
-#### Home-Manager Configuration
-***
+### Home-Manager Configuration
+
 Create `nixpkgs` directory in `~/.config` (if it is not present already).
 ```bash
 mkdir -p ~/.config/nixpkgs
@@ -178,7 +175,7 @@ source ~/.zshrc
 Congratulations! Now you're done!
 
 ## Afterword
-***
+
 Take a look at `home-manager/modules/zsh.nix`. There's a lot of handful aliases to explore. You might want to delete some of them, that's up to you.
 
 Also, consider `nixos/modules/nh.nix`. You'll may find it handy that you can setup cron to clean up your system regularly.
