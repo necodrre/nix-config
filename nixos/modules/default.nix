@@ -11,5 +11,6 @@
     ./user.nix
     ./vim.nix
     ./virtualisation.nix
+    ./zswap.nix
   ];
 }
