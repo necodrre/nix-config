@@ -2,6 +2,7 @@
 
 {
   fonts.packages = with pkgs; [
+    noto-fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.tinos
     nerd-fonts.monofur
