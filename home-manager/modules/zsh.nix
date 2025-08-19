@@ -28,18 +28,32 @@
 
       # Misc
       j = "just";
-      fetch = "clear && fastfetch --logo gentoo";
+      fetch = "clear &&  fastfetch --structure \" \" --logo gentoo --logo-padding-left $(($(tput cols)/4 + $(tput cols)/7)) | lolcat -as 200 -S 75 && echo && fastfetch --logo none --key-padding-left $(($(tput cols)/4 + $(tput cols)/7))";
+      # clear && \
+      # fastfetch --structure " " --logo gentoo --logo-padding-left \
+      #   $(($(tput cols)/4 + $(tput cols)/7)) | lolcat -as 200 -S 75 && \
+      #   echo && \
+      #   fastfetch --logo none --key-padding-left $(($(tput cols)/4 + $(tput cols)/7))
       fetchwin = "clear && fastfetch --logo windows";
       catext = "(){ find . -name \"*.$1\" -not -path './.git/*' -exec printf \"\\n\\n{}\\n\\n\\n\" \\; -exec bat -pp {} \\; }";
       rgdirext = "(){ find . -name \"*.$1\" -not -path './.git/*' -exec bash -c 'for f in \"$1\"; do if rg -q \"$2\" \"$f\"; then printf \"\\n$f\\n\\n\"; rg \"$2\" \"$f\"; fi; done' none {} \"$2\" \\; }";
-      # find . -name '*.go' -not -path './.git/*'
+      # find . -name '*.<extension>' -not -path './.git/*'
       #   -exec bash -c 'for f in "$1"; do
-      #                    if rg -q "main" "$f"; then
+      #                    if rg -q "<pattern>" "$f"; then
       #                      printf "\n$f\n\n";
-      #                      rg "main" "$f";
+      #                      rg "<pattern>" "$f";
       #                    fi;
       #                  done'
-      #   none {} \;
+      #   none {} "$2" \;
+      rgdir = "(){ find . -name \"*\" -not -path './.git/*' -exec bash -c 'for f in \"$1\"; do if rg -q \"$2\" \"$f\"; then printf \"\\n$f\\n\\n\"; rg \"$2\" \"$f\"; fi; done' none {} \"$1\" \\; }";
+      # find . -name '*' -not -path './.git/*'
+      #   -exec bash -c 'for f in "$1"; do
+      #                    if rg -q "<pattern>" "$f"; then
+      #                      printf "\n$f\n\n";
+      #                      rg "<pattern>" "$f";
+      #                    fi;
+      #                  done'
+      #   none {} "$1" \;
       get-alias = "() { printf '%s\\n' $aliases[$1] }";
 
       # Network

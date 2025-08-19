@@ -62,6 +62,7 @@
 
     # Because I want that.
     cmatrix
+    lolcat
 
     # For WM (Wayland)
     # bemoji         # Emoji picker with support for bemenu/wofi/rofi/dmenu and Wayland/X11
