@@ -14,9 +14,6 @@
     };
 
     shellAliases =
-    let
-      flakePath = config.home.sessionVariables.NIXOS_CONFIG_PATH;
-    in
     {
       # List directory contents
       ll = "eza --color=always -lah";
@@ -80,18 +77,18 @@
       nix-clean-sw = "sudo nh clean all --keep=3";
       clean-boot = "sudo /run/current-system/bin/switch-to-configuration boot";
       # Update/Switch/Build
-      nix-update = "nh os switch --update ${flakePath}";
-      nix-switch = "nh os switch --ask ${flakePath} && clean-boot";
-      nix-build = "nh os build ${flakePath}";
-      home-switch = "nh home switch --ask ${flakePath} && source /home/${user}/.zshrc";
-      home-build = "nh home build ${flakePath}";
+      nix-update = "nh os switch --update";
+      nix-switch = "nh os switch --ask && clean-boot";
+      nix-build = "nh os build";
+      home-switch = "nh home switch --ask && source /home/${user}/.zshrc";
+      home-build = "nh home build";
       # Full system upgrade
       nix-full-upgrade = "nix-update && nix-switch && home-switch && reboot";
       # Preview changes without performing them
-      nix-preview = "nh os switch --dry ${flakePath}";
-      home-preview = "nh home switch --dry ${flakePath}";
+      nix-preview = "nh os switch --dry";
+      home-preview = "nh home switch --dry";
       # Change directory to configuration directory
-      cdconf = "cd $NIXOS_CONFIG_PATH";
+      cdconf = "cd $NH_FLAKE";
       # nvd shortcut: compare two generations
       nvd-nix = "(){ nvd diff /nix/var/nix/profiles/system-{\"$1\",\"$2\"}-link }";
 

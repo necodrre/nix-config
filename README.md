@@ -92,8 +92,8 @@ Finally, change `./flake.nix` and `./home-manager/home.nix`, if needed.
     TERMINAL = "kitty";
     EDITOR = "hx";
     VISUAL = "hx";
---  NIXOS_CONFIG_PATH = "${config.home.homeDirectory}/.config/nix-config";
-++  NIXOS_CONFIG_PATH = "<absolute-path-to-config-root-directory>"
+--  NH_FLAKE = "${config.home.homeDirectory}/.config/nix-config";
+++  NH_FLAKE = "<absolute-path-to-config-root-directory>"
 ++  # Example: "/home/rat/nix-config" or "{config.home.homeDirectory}/nix-config"
   };
 ...
@@ -122,9 +122,9 @@ If you don't want to use virtual machine, then comment following lines.
 ...
 ```
 
-Finally, declare a variable called `NIXOS_CONFIG_PATH` with an absolute path to this config root directory.
+Finally, declare a variable called `NH_FLAKE` with an absolute path to this config root directory.
 ```bash
-NIXOS_CONFIG_PATH=$(pwd)
+NH_FLAKE=$(pwd)
 ```
 
 Rebuild your system and reboot.

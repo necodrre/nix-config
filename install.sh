@@ -230,9 +230,9 @@ fi
 sed -i "s/necodrre/${gitUsername}/" ./home-manager/modules/git.nix
 sed -i "s/necodrre@proton.me/${email}/" ./home-manager/modules/git.nix
 
-# Assign the NIXOS_CONFIG_PATH global variable for the installation
+# Assign the NH_FLAKE global variable for the installation
 sed -i "s|\${config.home.homeDirectory}/.config/nix-config|${absolute_config_path}/g" "./home-manager/home.nix"
-NIXOS_CONFIG_PATH="$absolute_config_path"
+NH_FLAKE="$absolute_config_path"
 
 # Create a new host
 mkdir -p ./hosts/"$hostname"

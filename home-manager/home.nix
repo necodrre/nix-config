@@ -16,7 +16,7 @@
     TERMINAL = "kitty";
     EDITOR = "hx";
     VISUAL = "hx";
-    NIXOS_CONFIG_PATH = "${config.home.homeDirectory}/.config/nix-config";
+    NH_FLAKE = "${config.home.homeDirectory}/.config/nix-config";
   };
 
   # Let Home Manager install and manage itself.
