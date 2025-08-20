@@ -74,16 +74,17 @@
       nixgens = "nixos-rebuild list-generations";
       homegens = "home-manager generations";
       # Clean the system (system-wide: nixos + home-manager)
-      nix-clean-sw = "sudo nh clean all --keep=3";
+      nix-clean-sw = "sudo nh clean all --ask --keep=3";
       clean-boot = "sudo /run/current-system/bin/switch-to-configuration boot";
       # Update/Switch/Build
       nix-update = "nh os switch --update";
-      nix-switch = "nh os switch --ask && clean-boot";
+      home-update = "nh home switch --update";
+      nix-switch = "nh os switch --ask";
       nix-build = "nh os build";
       home-switch = "nh home switch --ask && source /home/${user}/.zshrc";
       home-build = "nh home build";
       # Full system upgrade
-      nix-full-upgrade = "nix-update && nix-switch && home-switch && reboot";
+      nix-full-upgrade = "nix-update && home-switch && reboot";
       # Preview changes without performing them
       nix-preview = "nh os switch --dry";
       home-preview = "nh home switch --dry";
