@@ -98,6 +98,8 @@
 
     # Other
     nix-prefetch-scripts
+    nix-output-monitor
+    nvd
   ];
 
   # Enable touchpad support (enabled default in most desktopManager).

@@ -92,6 +92,8 @@
       home-preview = "nh home switch --dry ${flakePath}";
       # Change directory to configuration directory
       cdconf = "cd $NIXOS_CONFIG_PATH";
+      # nvd shortcut: compare two generations
+      nvd-nix = "(){ nvd diff /nix/var/nix/profiles/system-{\"$1\",\"$2\"}-link }";
 
       # home-switch = "home-manager switch --flake .#${user} && source /home/${user}/.zshrc";
       # nix-switch = "sudo nixos-rebuild switch --flake .#${hostname} && clean-boot";
