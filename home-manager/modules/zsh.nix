@@ -42,8 +42,8 @@
       #                    fi;
       #                  done'
       #   none {} "$2" \;
-      rgdir = "(){ find . -name \"*\" -not -path './.git/*' -exec bash -c 'for f in \"$1\"; do if rg -q \"$2\" \"$f\"; then printf \"\\n$f\\n\\n\"; rg \"$2\" \"$f\"; fi; done' none {} \"$1\" \\; }";
-      # find . -name '*' -not -path './.git/*'
+      rgdir = "(){ find . -not -path './.git*' -exec bash -c 'for f in \"$1\"; do if rg -q \"$2\" \"$f\"; then printf \"\\n$f\\n\\n\"; rg \"$2\" \"$f\"; fi; done' none {} \"$1\" \\; }";
+      # find . -not -path './.git*'
       #   -exec bash -c 'for f in "$1"; do
       #                    if rg -q "<pattern>" "$f"; then
       #                      printf "\n$f\n\n";
