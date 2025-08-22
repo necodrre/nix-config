@@ -45,6 +45,9 @@
     mesa         # 3D Graphics library
     pciutils     # PCIUtils...
     usbutils     # Used for lsusb
+    inetutils    # Collection of common network programs
+                   # Which programs are installed exactly you can see on:
+                   # https://www.gnu.org/software/inetutils/manual/inetutils.html
     lsscsi       # List SCSI devices (or hosts)
     lshw         # List hardware configuration
     samba        # For winbindd/ntlm_auth packages
